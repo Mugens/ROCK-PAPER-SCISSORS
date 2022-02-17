@@ -4,6 +4,16 @@ function Game(){
   const scissorsBtn = document.querySelector('.scissors-btn');
   const resetBtn = document.querySelector('.reset');
 
+  const titleClass ='.result-title';
+  const subtitileClass = '.result-subtitile';
+  const playerScoreClass = '.player-score';
+  const computerScoreClass = '.computer-score';
+  const playerChoiceClass = '.player-img';
+  const computerChoiceClass = '.computer-img';
+  const gameResultClass = '.game-result';
+  const resultWindownClass = '.overlay';
+
+
 
   const score = {
     player: 0,
@@ -20,7 +30,6 @@ function Game(){
     const player = this.value;
     const computer = computerPlay();
     playRound(player, computer);
-    showScore(player, computer);
     if(score.player===5){
       showWiner(true)
     }
@@ -30,10 +39,6 @@ function Game(){
   }
 
   function playRound(player, computer){
-    const resultTitle = document.querySelector('.result-title');
-    const resultSubtitile = document.querySelector('.result-subtitile');
-
-
     const isWin = {
       Rock: "Scissors",
       Paper: "Rock",
@@ -41,21 +46,18 @@ function Game(){
     }
 
     if(player === computer){
-      resultTitle.textContent = "It's a Draw!";
-      resultSubtitile.textContent = `${player} and ${computer}`;
-      return 'draw';
+      showRoundResult("It's a Draw!",`${player} and ${computer}`);
+      showScore(player, computer);
     }
     else if(isWin[player]===computer){
       score.player++;
-      resultTitle.textContent = "You Win!";
-      resultSubtitile.textContent = `${player} and ${computer}`;
-      return 'win'
+      showRoundResult("You Win!",`${player} beats ${computer}`);
+      showScore(player, computer);
     }
     else{
       score.computer++;
-      resultTitle.textContent = "You Lose!";
-      resultSubtitile.textContent = `${computer} and ${player}`;
-      return 'lose'
+      showRoundResult("You Lose!",`${computer} and ${player}`);
+      showScore(player, computer);
     }
   }
 
@@ -65,11 +67,19 @@ function Game(){
     return arr[Math.floor(Math.random()*3)];
   }
 
+  function showRoundResult(title, subtitle){
+    const resultTitle = document.querySelector(titleClass);
+    const resultSubtitile = document.querySelector(subtitileClass);
+
+    resultTitle.textContent = title;
+    resultSubtitile.textContent = subtitle;
+  }
+
   function showScore(player, computer){
-    const playerScore = document.querySelector('.player-score');
-    const computerScore = document.querySelector('.computer-score');
-    const playerChoice = document.querySelector('.player-img');
-    const computerChoice = document.querySelector('.computer-img');
+    const playerScore = document.querySelector(playerScoreClass);
+    const computerScore = document.querySelector(computerScoreClass);
+    const playerChoice = document.querySelector(playerChoiceClass);
+    const computerChoice = document.querySelector(computerChoiceClass);
     
     const imgSrc = {
       Rock: "./img/rock.png",
@@ -85,12 +95,11 @@ function Game(){
   }
 
   function showWiner(winner){
-    const gameResult = document.querySelector('.game-result');
-    const resultWindown = document.querySelector('.overlay');
+    const gameResult = document.querySelector(gameResultClass);
+    const resultWindown = document.querySelector(resultWindownClass);
 
 
     gameResult.textContent = winner ? 'You Win!' : 'You Lose!';
-
     resultWindown.classList.add('show');
   }
 
@@ -101,4 +110,4 @@ function Game(){
 
 }
 
-Game();
+window.onload = Game();
