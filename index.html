@@ -22,13 +22,17 @@
       </div>
       <div class="result-players">
         <div class="player">
-          <img src="./img/question-mark.png" alt="Question mark">
+          <div class="img-wrapper">
+            <img class="player-img" src="./img/question-mark.png" alt="Question mark">
+          </div>
           <p class="player-score">
             Player: 0
           </p>
         </div>
         <div class="computer">
-          <img src="./img/question-mark.png" alt="Question mark">
+          <div class="img-wrapper">
+            <img class="computer-img" src="./img/question-mark.png" alt="Question mark">
+          </div>
           <p class="computer-score">
             Computer: 0
           </p>
@@ -36,13 +40,13 @@
       </div>
 
       <div class="player-button">
-        <button class="rock-btn hvr-grow-rotate" value="rock">
+        <button class="rock-btn hvr-grow-rotate" value="Rock">
           <img src="./img/rock.png" alt="Rock">
         </button>
-        <button class="paper-btn hvr-grow-rotate" value="paper">
+        <button class="paper-btn hvr-grow-rotate" value="Paper">
           <img src="./img/file.png" alt="Paper">
         </button>
-        <button class="scissors-btn hvr-grow-rotate" value="scissors">
+        <button class="scissors-btn hvr-grow-rotate" value="Scissors">
           <img src="./img/scissors.png" alt="scissors">
         </button>
       </div>
@@ -52,6 +56,17 @@
     <footer>
       <a href="https://github.com/Mugens"> Copyright © 2022 Mugens</a>
     </footer>
+
+    <div class="overlay">
+      <div class="overlay-popup">
+        <h1 class="game-result">
+          You lose!
+        </h1>
+        <a href="#" class="reset">
+          Try again!
+        </a>
+      </div>
+    </div>
   
   <script src="./script.js">
 
