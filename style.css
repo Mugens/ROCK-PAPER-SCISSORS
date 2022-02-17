@@ -1,0 +1,122 @@
+@font-face {
+  font-family: 'Bungee Shade';
+  src: url("fonts/Bungee_Shade/BungeeShade-Regular.ttf") format("truetype");
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Jura';
+  src: url("fonts/Jura/Jura-VariableFont_wght.ttf") format("truetype");
+  font-display: fallback;
+}
+:root{
+  --blue-color:#14213D;
+  --yellow-color: #FCA311;
+}
+
+*,*::before,*::after{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html{
+  font-size: 20px;
+  height: 100%;
+}
+body{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: var(--yellow-color);
+}
+header, footer{
+  background-color: var(--blue-color);
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+}
+main{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1;
+}
+
+h1{
+  font-family: 'Bungee Shade', cursive;
+  font-size: 2rem;
+  color: var(--yellow-color);
+  line-height: 1.2;
+}
+h2{
+  font-family: 'Jura', sans-serif;
+  color: var(--blue-color);
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+p{
+  font-family: 'Jura', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--blue-color);
+  margin-bottom: 5px;
+}
+
+a{
+  font-family: 'Jura', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--yellow-color);
+  text-decoration: none;
+}
+button{
+  border-radius: 50%;
+  max-width: 200px;
+  padding: 20px;
+  margin: 5px 10px;
+  background-color: var(--blue-color);
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+img{
+  width: 100%;
+  height: auto;
+}
+
+.text-section{
+  text-align: center;
+  padding: 15px 0;
+}
+
+.result-players, .player-button{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.player,.computer{
+  text-align: center;
+  padding: 5px 20px;
+}
+
+
+
+/* Grow Rotate */
+.hvr-grow-rotate {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow-rotate:hover, .hvr-grow-rotate:focus, .hvr-grow-rotate:active {
+  -webkit-transform: scale(1.1) rotate(40deg);
+  transform: scale(1.1) rotate(20deg);
+}
